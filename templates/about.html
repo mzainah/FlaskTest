@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<h1>About This App</h1>
+<p>This is a simple contact manager built with Flask and SQLite.</p>
+<p>Features:</p>
+<ul>
+    <li>Add contacts</li>
+    <li>View in table</li>
+    <li>Delete entries</li>
+    <li>Persistent storage</li>
+</ul>
+<a href="{{ url_for('home') }}">← Back to Home</a>
+{% endblock %}

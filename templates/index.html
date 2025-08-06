@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Contact Manager{% endblock %}
+
+{% block content %}
+<h1>📞 Contact Manager</h1>
+
+<form method="POST">
+    <input type="text" name="name" placeholder="Full name" required>
+    <input type="email" name="email" placeholder="Email (optional)">
+    <button type="submit">Add Contact</button>
+</form>
+
+<h2>Contacts</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+    {% for contact in contacts %}
+    <tr>
+        <td>{{ contact[0] }}</td>
+        <td>{{ contact[1] }}</td>
+        <td>{{ contact[2] or "—" }}</td>
+        <td><a href="/delete/{{ contact[0] }}" onclick="return confirm('Delete {{ contact[1] }}?')">🗑️ Delete</a></td>
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="4" style="text-align: center; color: #7f8c8d;">No contacts yet.</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
